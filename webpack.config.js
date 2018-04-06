@@ -10,7 +10,7 @@ module.exports = {
    },
    plugins: [
       new HtmlWebpackPlugin({
-         template: 'index.html'
+         template: './src/index.html'
       })
    ],
   output: {
@@ -35,6 +35,19 @@ module.exports = {
             }
          }]
        },
+       {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img/',
+              publicPath: 'img/'
+            }
+          }
+        ]
+      },
        { test: /\.(js)$/, use: 'babel-loader' }
      ]
    },
